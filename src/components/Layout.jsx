@@ -17,9 +17,10 @@ export const Layout = ({ children }) => {
 
   const expandNavAnimation = useSpring({
     position: "relative",
+    opacity: state.mobileNavOpen ? "0.5" : "1",
     transformOrigin: "top left",
     transform: state.mobileNavOpen
-      ? "translate3d(200px, 0, 0) rotate(4deg)"
+      ? "translate3d(300px, 0, 0) rotate(0deg)"
       : "translate3d(0px, 0, 0) rotate(0deg)",
   })
 

@@ -4,6 +4,7 @@ import { Spacer } from "../components/Spacer"
 import { Sans } from "../components/Typography"
 import { Center } from "../components/Center"
 import { Divider } from "../components/Divider"
+import { Desktop } from "../components/Responsive"
 
 export const Home = () => {
   return (
@@ -20,8 +21,8 @@ export const Home = () => {
       <Spacer my={4} />
 
       <Center my={4}>
-        <Box width="70%">
-          <Sans size={7} weight="light" textAlign="center">
+        <Box width={["100%", "70%"]}>
+          <Sans size={[6, 7]} weight="light" textAlign="center">
             Rejuvenating soil and soul through accessible nourishment,
             inter-farm cooperation and reciprocal human - land relationships.
             <br />
@@ -31,8 +32,8 @@ export const Home = () => {
 
       <Divider mt={4} />
 
-      <Flex>
-        <Box p={4} width="50%">
+      <Flex flexDirection={["column", "row"]}>
+        <Box p={[1, 4]} width={["100%", "50%"]}>
           <Center mb={4}>
             <Sans size={7} weight="regular" textAlign="center">
               Farming Practices
@@ -51,7 +52,7 @@ export const Home = () => {
           </Center>
         </Box>
 
-        <Box p={4} width="50%">
+        <Box p={[1, 4]} width={["100%", "50%"]}>
           <Center mb={4}>
             <Sans size={7} weight="regular" textAlign="center">
               Values
@@ -92,8 +93,8 @@ export const Home = () => {
       <Divider mt={4} />
 
       <Center my={4}>
-        <Box width="70%">
-          <Sans size={7} weight="light" textAlign="center">
+        <Box width={["100%", "70%"]}>
+          <Sans size={[6, 7]} weight="light" textAlign="center">
             In the modern world, access to nourishing food is not as pervasive
             as it should be. Just as a seed germinates only when provided with
             the necessary growth conditions, people require proper nutrition to
@@ -105,23 +106,29 @@ export const Home = () => {
 
       <Divider mt={4} />
 
-      <Box p={4}>
-        <Flex>
+      <Box p={[1, 4]}>
+        <Flex flexDirection={["column", "row"]}>
           <Box pt={2} pr={4}>
-            <Sans size={7} weight="regular" textAlign="right">
-              In order to nurture a balanced food ecosystem, SoulCedar Farm
-              will:
+            <Sans
+              size={[6, 7]}
+              weight="regular"
+              textAlign={["center", "right"]}
+            >
+              In order to nurture a balanced food ecosystem, SoulCedar Farm will
+              <Desktop>:</Desktop>
             </Sans>
 
-            <Flex pl={4} pt={6} justifyContent="center" alignItems="center">
-              <Image
-                src={require("../assets/soulcedar/logo-bw.jpg")}
-                width={200}
-                height={200}
-                // height="100%"
-                style={{ objectFit: "contain" }}
-              />
-            </Flex>
+            <Desktop>
+              <Flex pl={4} pt={6} justifyContent="center" alignItems="center">
+                <Image
+                  src={require("../assets/soulcedar/logo-bw.jpg")}
+                  width={200}
+                  height={200}
+                  // height="100%"
+                  style={{ objectFit: "contain" }}
+                />
+              </Flex>
+            </Desktop>
           </Box>
 
           <Box>

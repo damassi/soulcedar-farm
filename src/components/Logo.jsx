@@ -11,7 +11,7 @@ export const Logo = props => {
           <Box mt={1}>
             <Image
               src={require("../assets/soulcedar/logo-color.jpg")}
-              width={100}
+              width={150}
             />
           </Box>
         </Mobile>
