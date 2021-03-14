@@ -9,5 +9,4 @@ typings/
 
 # Gatsby files
 .cache/
-/public
 build
