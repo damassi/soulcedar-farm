@@ -11,7 +11,7 @@ export const Home = () => {
     <Box>
       <Box height={400} style={{ overflow: "hidden" }}>
         <Image
-          src={require("../assets/soulcedar/image5.jpeg")}
+          src={require("../assets/soulcedar/image1-cropped.jpg")}
           height={300}
           width="100%"
           style={{ objectFit: "cover" }}
@@ -98,7 +98,7 @@ export const Home = () => {
             In the modern world, access to nourishing food is not as pervasive
             as it should be. Just as a seed germinates only when provided with
             the necessary growth conditions, people require proper nutrition to
-            flourish. neglect any of these essential elements.
+            flourish.
             <br />
           </Sans>
         </Box>
