@@ -10,12 +10,14 @@ export const Home = () => {
   return (
     <Box>
       <Box height={400} style={{ overflow: "hidden" }}>
-        <Image
-          src={require("../assets/soulcedar/image1-cropped.jpg")}
-          height={300}
-          width="100%"
-          style={{ objectFit: "cover" }}
-        />
+        <Center>
+          <Image
+            src={require("../assets/soulcedar/image5.jpeg")}
+            height={300}
+            width="100%"
+            style={{ objectFit: "cover" }}
+          />
+        </Center>
       </Box>
 
       <Spacer my={4} />
