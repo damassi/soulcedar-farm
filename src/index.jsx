@@ -10,8 +10,9 @@ import { About } from "./routes/About"
 import { ContactUs } from "./routes/ContactUs"
 import { WhereToFindUs } from "./routes/WhereToFindUs"
 
-import { theme, GlobalStyle } from "./theme"
+import { GlobalStyle } from "./GlobalStyles"
 import { Transition } from "./components/Transition"
+import { theme } from "./theme"
 
 const App = () => {
   return (

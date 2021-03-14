@@ -90,7 +90,6 @@ const MobileNavigation = () => {
       <animated.div style={expandNavAnimation}>
         <Container my={5} alignItems="flex-start" width="100%">
           <NavItems />
-          {/* <SocialItems /> */}
         </Container>
       </animated.div>
     </MobileContainer>
@@ -103,12 +102,12 @@ const Container = styled(Flex)`
   a {
     text-decoration: none;
     &:hover {
-      color: ${color("black100")};
+      color: inherit;
     }
   }
 
   .active {
-    color: ${color("teal")};
+    color: ${color("teal")} !important;
   }
 `
 
