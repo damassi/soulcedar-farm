@@ -30,10 +30,10 @@ export const Home = () => {
         </Box>
       </Center>
 
-      <Divider mt={4} />
+      <Divider my={4} />
 
       <Flex flexDirection={["column", "row"]}>
-        <Box p={[1, 4]} width={["100%", "50%"]}>
+        <Box px={[1, 4]} width={["100%", "50%"]}>
           <Center mb={4}>
             <Sans size={7} weight="regular" textAlign="center">
               Farming Practices
@@ -52,7 +52,7 @@ export const Home = () => {
           </Center>
         </Box>
 
-        <Box p={[1, 4]} width={["100%", "50%"]}>
+        <Box mt={[5, 0]} px={[1, 4]} width={["100%", "50%"]}>
           <Center mb={4}>
             <Sans size={7} weight="regular" textAlign="center">
               Values
@@ -90,7 +90,7 @@ export const Home = () => {
         </Flex>
       </Center>
 
-      <Divider mt={4} />
+      <Divider my={4} />
 
       <Center my={4}>
         <Box width={["100%", "70%"]}>
@@ -104,11 +104,11 @@ export const Home = () => {
         </Box>
       </Center>
 
-      <Divider mt={4} />
+      <Divider my={4} />
 
-      <Box p={[1, 4]}>
+      <Box px={[1, 4]}>
         <Flex flexDirection={["column", "row"]}>
-          <Box pt={2} pr={4}>
+          <Box pt={[0, 2]} pr={4}>
             <Sans
               size={[6, 7]}
               weight="regular"
