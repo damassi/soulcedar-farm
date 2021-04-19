@@ -46,8 +46,8 @@ export const Home = () => {
             <Sans size={5} weight="light" textAlign="center">
               Sage and Max raise small livestock to control pests, enhance soil
               health and build compost. While SoulCedar Farm does not hold an
-              organic certification, no chemicals or pesticides are used for in
-              any manner, all potting soil and purchased compost is organic, and
+              organic certification, no chemicals or pesticides are used in any
+              manner, all potting soil and purchased compost is organic, and
               product ingredients are sourced from farms and companies who share
               these values.
             </Sans>
