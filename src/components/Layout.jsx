@@ -26,7 +26,7 @@ export const Layout = ({ children }) => {
 
   return (
     <>
-      <Container p={[1, 4]}>
+      <Container p={[1, 2]}>
         <Desktop>
           <Logo />
           <Navigation />

@@ -61,7 +61,7 @@ export const Navigation = () => {
 
 const DesktopNavigation = () => {
   return (
-    <Container m={5} alignItems="center" flexDirection="row">
+    <Container m={2} alignItems="center" flexDirection="row">
       <NavItems />
     </Container>
   )

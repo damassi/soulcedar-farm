@@ -9,16 +9,13 @@ export const Logo = props => {
       <Link to="/">
         <Mobile>
           <Box mt={1}>
-            <Image
-              src={require("../assets/soulcedar/logo-color.jpg")}
-              width={150}
-            />
+            <Image src={require("../assets/soulcedar/logo.svg")} width={150} />
           </Box>
         </Mobile>
         <Desktop>
           <Box>
             <Image
-              src={require("../assets/soulcedar/logo-color.jpg")}
+              src={require("../assets/soulcedar/logo.svg")}
               width="auto"
               height={190}
             />

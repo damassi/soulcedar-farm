@@ -123,9 +123,9 @@ export const Home = () => {
             <Desktop>
               <Flex pl={4} pt={6} justifyContent="center" alignItems="center">
                 <Image
-                  src={require("../assets/soulcedar/logo-bw.jpg")}
-                  width={200}
-                  height={200}
+                  src={require("../assets/soulcedar/logo.svg")}
+                  width={300}
+                  height={300}
                   // height="100%"
                   style={{ objectFit: "contain" }}
                 />
