@@ -38,6 +38,7 @@ const NavItems = () => {
       justifyContent="center"
     >
       <LinkItem to="/">Home</LinkItem>
+      <LinkItem to="/shop">Shop</LinkItem>
       <LinkItem to="/about">About</LinkItem>
       {/* <LinkItem to="/gallery">Gallery</LinkItem> */}
       <LinkItem to="/where-to-find-us">Where to Find Us</LinkItem>

@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components"
 import { Layout } from "./components/Layout"
 
 import { Home } from "./routes/Home"
+import { Shop } from "./routes/Shop"
 import { About } from "./routes/About"
 import { ContactUs } from "./routes/ContactUs"
 import { WhereToFindUs } from "./routes/WhereToFindUs"
@@ -23,6 +24,7 @@ const App = () => {
         <Router primary={false}>
           <Layout path="/">
             <Home path="/" />
+            <Shop path="/shop" />
             <About path="/about" />
             <WhereToFindUs path="/where-to-find-us" />
             <ContactUs path="/contact-us" />
