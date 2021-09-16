@@ -5,6 +5,7 @@ import { Link } from "rebass"
 
 // Globals
 export const GlobalStyle = createGlobalStyle`
+
   body, html {
     background: url(${backgroundImage});
     font-family: ${font("sans")}, sans-serif;

@@ -7,6 +7,7 @@ import { Navigation } from "./Navigation"
 import { useSpring, animated } from "react-spring"
 import { Desktop, Mobile } from "./Responsive"
 import { Footer } from "./Footer"
+import { Spacer } from "./Spacer"
 
 setGlobal({
   mobileNavOpen: false,
@@ -25,11 +26,11 @@ export const Layout = ({ children }) => {
   })
 
   return (
-    <>
-      <Container p={[1, 2]}>
+      <Container p={[1, 2]} >
         <Desktop>
           <Logo />
           <Navigation />
+          <Spacer my={3} />
           <Content mt={2}>{children}</Content>
           <Footer />
         </Desktop>
@@ -42,14 +43,14 @@ export const Layout = ({ children }) => {
           </animated.div>
         </Mobile>
       </Container>
-    </>
   )
 }
 
 const Container = styled(Box)`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto !important;
 
+  justify-content: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

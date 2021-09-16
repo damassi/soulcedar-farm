@@ -11,7 +11,7 @@ import { useSpring, animated } from "react-spring"
 
 const LinkItem = props => {
   return (
-    <Box mr={3}>
+    <Box mr={4}>
       <Serif color="black60" size={["6", "6"]}>
         <Link
           to={props.to}

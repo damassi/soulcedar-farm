@@ -3,13 +3,14 @@ import { Flex, Box, Image } from "rebass"
 import { Sans } from "../components/Typography"
 import { Spacer } from "../components/Spacer"
 import { Link } from "@reach/router"
+import image from "../assets/soulcedar/image3.jpeg"
 
 export const About = () => {
   return (
     <>
       <Flex flexDirection={["column", "row"]}>
         <Box width={["100%", "60%"]} pr={[0, 5]}>
-          <Image src={require("../assets/soulcedar/image3.jpeg")} />
+          <Image src={image} />
         </Box>
         <Box width={["100%", "40%"]} my={[2, 0]}>
           <Sans size={["5", "6"]}>

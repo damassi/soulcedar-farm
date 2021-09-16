@@ -1,11 +1,11 @@
-import React from "react"
-import { Box, Flex } from "rebass"
-import { Spacer } from "../components/Spacer"
-import { Center } from "../components/Center"
-import { BorderBox } from "../components/BorderBox"
-import { Sans } from "../components/Typography"
-import { Serif } from "../components/Typography"
-import { data } from "../data"
+import React from "react";
+import { Box, Flex } from "rebass";
+import { Spacer } from "../components/Spacer";
+import { Center } from "../components/Center";
+import { BorderBox } from "../components/BorderBox";
+import { Sans } from "../components/Typography";
+import { Serif } from "../components/Typography";
+import { data } from "../data";
 
 export const Shop = () => {
   return (
@@ -29,8 +29,6 @@ export const Shop = () => {
       </Center>
 
       <Flex flexDirection={["column", "row"]}>
-        {/* <Flex flexDirection={["row", "column"]}> */}
-
         <Box width="70%" pr={5}>
           <Flex flexWrap="wrap" pl={2}>
             {data.products.map((product, index) => {
@@ -53,7 +51,7 @@ export const Shop = () => {
                   </Box>
                   <Box />
                 </BorderBox>
-              )
+              );
             })}
           </Flex>
         </Box>
@@ -86,5 +84,5 @@ export const Shop = () => {
 
       <Spacer my={4} />
     </>
-  )
-}
+  );
+};

@@ -1,18 +1,20 @@
 import React from "react"
 import { Box, Flex, Image } from "rebass"
-import { Spacer } from "../components/Spacer"
 import { Sans } from "../components/Typography"
 import { Center } from "../components/Center"
 import { Divider } from "../components/Divider"
 import { Desktop } from "../components/Responsive"
+import homeImage from '../assets/soulcedar/image5.jpeg'
+import secondImage from "../assets/soulcedar/image4.jpeg"
+import logo from "../assets/soulcedar/logo.svg"
 
 export const Home = () => {
   return (
     <Box>
-      <Box height={400} style={{ overflow: "hidden" }}>
+      <Box height={350} style={{ overflow: "hidden" }}>
         <Center>
           <Image
-            src={require("../assets/soulcedar/image5.jpeg")}
+            src={homeImage}
             height={300}
             width="100%"
             style={{ objectFit: "cover" }}
@@ -20,9 +22,7 @@ export const Home = () => {
         </Center>
       </Box>
 
-      <Spacer my={4} />
-
-      <Center my={4}>
+      <Center >
         <Box width={["100%", "70%"]}>
           <Sans size={[6, 7]} weight="light" textAlign="center">
             Rejuvenating soil and soul through accessible nourishment,
@@ -79,12 +79,12 @@ export const Home = () => {
       <Center my={4}>
         <Flex
           justifyContent="center"
-          height={700}
+          // height={700}
           width={700}
           style={{ overflow: "hidden" }}
         >
           <Image
-            src={require("../assets/soulcedar/image4.jpeg")}
+            src={secondImage}
             height={300}
             width="70%"
             style={{ objectFit: "cover" }}
@@ -123,7 +123,7 @@ export const Home = () => {
             <Desktop>
               <Flex pl={4} pt={6} justifyContent="center" alignItems="center">
                 <Image
-                  src={require("../assets/soulcedar/logo.svg")}
+                  src={logo}
                   width={300}
                   height={300}
                   // height="100%"
