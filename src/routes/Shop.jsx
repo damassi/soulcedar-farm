@@ -29,7 +29,7 @@ export const Shop = () => {
       </Center>
 
       <Flex flexDirection={["column", "row"]}>
-        <Box width="70%" pr={5}>
+        <Box width={["100%", "70%"]} pr={[0, 5]}>
           <Flex flexWrap="wrap" pl={2}>
             {data.products.map((product, index) => {
               return (
@@ -55,7 +55,7 @@ export const Shop = () => {
             })}
           </Flex>
         </Box>
-        <Box width="30%">
+        <Box width={["100%", "30%"]}>
           <Spacer my={3} />
           <Box>
             <Box>
