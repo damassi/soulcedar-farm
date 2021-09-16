@@ -43,11 +43,22 @@ export const Shop = () => {
                     </Sans>
                     <Box mt={1}>{product.description}</Box>
                     <Flex mt={1} justifyContent="space-between">
-                      <Sans pr={1}>{product.price}</Sans>
-                      {/* <Sans size="3" weight="bold" mt="3px">
-                        Add to Cart
-                      </Sans> */}
+                      <Sans pr={1}>
+                        ${product.price}, {product.meta}
+                      </Sans>
                     </Flex>
+
+                    <button
+                      className="snipcart-add-item"
+                      data-item-description={product.description}
+                      data-item-id={product.productId}
+                      data-item-image="/assets/images/starry-night.jpg"
+                      data-item-name={product.title}
+                      data-item-price={product.price}
+                      data-item-url="/shop"
+                    >
+                      Add to cart
+                    </button>
                   </Box>
                   <Box />
                 </BorderBox>
