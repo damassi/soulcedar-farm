@@ -39,17 +39,17 @@ const NavItems = () => {
       justifyContent="center"
     >
       <LinkItem to="/">Home</LinkItem>
-      <LinkItem to="/shop">Shop</LinkItem>
+      {/* <LinkItem to="/shop">Shop</LinkItem> */}
       <LinkItem to="/about">About</LinkItem>
       {/* <LinkItem to="/gallery">Gallery</LinkItem> */}
       <LinkItem to="/where-to-find-us">Where to Find Us</LinkItem>
       <LinkItem to="/contact-us">Contact</LinkItem>
 
-      <Flex height={15} position="relative" mt="12px" alignItems="center">
+      {/* <Flex height={15} position="relative" mt="12px" alignItems="center">
         <CheckoutButton className="snipcart-checkout" background="hidden">
           <Image src={cart} width={15} height={15} />
         </CheckoutButton>
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 };
