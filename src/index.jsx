@@ -16,9 +16,10 @@ import { Transition } from "./components/Transition";
 import { theme } from "./theme";
 
 const SNIPCART_API_KEY =
-  process.env.NODE_ENV === "development"
-    ? "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5"
-    : "TODO";
+  "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5";
+// process.env.NODE_ENV === "development"
+//   ? "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5"
+//   : "TODO";
 
 const App = () => {
   return (
