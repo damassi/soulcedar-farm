@@ -32,6 +32,10 @@ export const Shop = () => {
         <Box width={["100%", "70%"]} pr={[0, 5]}>
           <Flex flexWrap="wrap" pl={2}>
             {data.products.map((product, index) => {
+              if (product.hide) {
+                return null;
+              }
+
               return (
                 <BorderBox mr={2} mb={2} key={index} width="100%">
                   <Box>

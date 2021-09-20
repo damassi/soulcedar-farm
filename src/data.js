@@ -34,6 +34,8 @@ export const data = {
       price: "$12.50/ 12 oz bottle",
       description:
         "The combination of blueberry and mild basil come through in a cool, refreshing way. Bright, juicy and slightly tangy, this shrub is a refreshing warm weather beverage.",
+      // Out of stock
+      hide: true,
     },
     {
       title: "Blackberry Sage Shrub",
@@ -43,4 +45,4 @@ export const data = {
         "A beautiful blend of rich blackberry and fragrant sage! These flavors meld together, pulling fruity, full- bodied qualities forward in a sweet and savory balance.",
     },
   ],
-}
+};
