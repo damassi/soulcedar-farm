@@ -6,11 +6,7 @@ import logo from "../assets/soulcedar/logo.svg";
 
 export const Logo = (props) => {
   return (
-    <Flex justifyContent="center" style={props.style}>
-      <button className="snipcart-checkout">Click here to checkout</button>
-      <span className="snipcart-items-count"></span>
-      <span className="snipcart-total-price"></span>
-
+    <Flex justifyContent="center" style={props.style} position="relative">
       <Link to="/">
         <Mobile>
           <Box mt={1}>

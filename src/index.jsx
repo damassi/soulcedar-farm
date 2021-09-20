@@ -1,19 +1,24 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Router } from "@reach/router"
-import { ThemeProvider } from "styled-components"
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router } from "@reach/router";
+import { ThemeProvider } from "styled-components";
 
-import { Layout } from "./components/Layout"
+import { Layout } from "./components/Layout";
 
-import { Home } from "./routes/Home"
-import { Shop } from "./routes/Shop"
-import { About } from "./routes/About"
-import { ContactUs } from "./routes/ContactUs"
-import { WhereToFindUs } from "./routes/WhereToFindUs"
+import { Home } from "./routes/Home";
+import { Shop } from "./routes/Shop";
+import { About } from "./routes/About";
+import { ContactUs } from "./routes/ContactUs";
+import { WhereToFindUs } from "./routes/WhereToFindUs";
 
-import { GlobalStyle } from "./GlobalStyles"
-import { Transition } from "./components/Transition"
-import { theme } from "./theme"
+import { GlobalStyle } from "./GlobalStyles";
+import { Transition } from "./components/Transition";
+import { theme } from "./theme";
+
+const SNIPCART_API_KEY =
+  process.env.NODE_ENV === "development"
+    ? "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5"
+    : "TODO";
 
 const App = () => {
   return (
@@ -30,13 +35,15 @@ const App = () => {
             <ContactUs path="/contact-us" />
           </Layout>
         </Router>
+
+        <div id="snipcart" data-api-key={SNIPCART_API_KEY} hidden></div>
       </Transition>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"));
 
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept();
 }
