@@ -59,7 +59,7 @@ export const Shop = () => {
                       data-item-image="/assets/images/starry-night.jpg"
                       data-item-name={product.title}
                       data-item-price={product.price}
-                      data-item-url="/shop"
+                      data-item-url="https://soulcedarfarm.com/shop"
                     >
                       Add to cart
                     </button>
