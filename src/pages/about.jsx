@@ -1,10 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import { Flex, Box } from "rebass";
+import { Flex, Box, Image } from "rebass";
 import { Sans } from "../components/Typography";
 import { Spacer } from "../components/Spacer";
 import Link from "next/link";
-import Image from "next/image";
 
 const About = () => {
   return (
