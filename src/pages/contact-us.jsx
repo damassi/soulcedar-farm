@@ -1,18 +1,13 @@
-import React from "react"
-import { Box } from "rebass"
-import { Center } from "../components/Center"
-import { Spacer } from "../components/Spacer"
-import { Sans } from "../components/Typography"
+import React from "react";
+import { Box } from "rebass";
+import { Center } from "../components/Center";
+import { Spacer } from "../components/Spacer";
+import { Sans } from "../components/Typography";
 
-export const ContactUs = () => {
+const ContactUs = () => {
   return (
     <Box style={{ position: "relative" }}>
-      <Center
-        flexDirection="column"
-        justifyContent="center"
-        width="100%"
-        style={{ position: "absolute" }}
-      >
+      <Center flexDirection="column" justifyContent="center" width="100%">
         <Box>
           <Sans size={5} weight="light" textAlign="center">
             Max Evans, co-owner, <a href="tel:360-660-7101">(360)660-7101</a>
@@ -40,5 +35,7 @@ export const ContactUs = () => {
         </Box>
       </Center>
     </Box>
-  )
-}
+  );
+};
+
+export default ContactUs;

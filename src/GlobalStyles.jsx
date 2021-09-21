@@ -1,13 +1,12 @@
-import { color, font, theme } from "./theme"
-import { createGlobalStyle } from "styled-components"
-import backgroundImage from "./assets/background-gradient.png"
-import { Link } from "rebass"
+import { color, font, theme } from "./theme";
+import { createGlobalStyle } from "styled-components";
+import { Link } from "rebass";
 
 // Globals
 export const GlobalStyle = createGlobalStyle`
 
   body, html {
-    background: url(${backgroundImage});
+    background: url("/background-gradient.png");
     font-family: ${font("sans")}, sans-serif;
     color: ${color("black60")};
     font-size: ${theme.typography.sizes[4].fontSize}px;
@@ -27,4 +26,4 @@ export const GlobalStyle = createGlobalStyle`
       color: ${color("teal")};
     }
   }
-`
+`;

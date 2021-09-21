@@ -7,7 +7,7 @@ import { Sans } from "../components/Typography";
 import { Serif } from "../components/Typography";
 import { data } from "../data";
 
-export const Shop = () => {
+const Shop = () => {
   return (
     <>
       <Center mb={4}>
@@ -37,6 +37,7 @@ export const Shop = () => {
               }
 
               return (
+                // @ts-ignore
                 <BorderBox mr={2} mb={2} key={index} width="100%">
                   <Box>
                     <Serif size={["4", "5"]} weight="bold" color="purpleDark">
@@ -59,7 +60,7 @@ export const Shop = () => {
                       data-item-image="/assets/images/starry-night.jpg"
                       data-item-name={product.title}
                       data-item-price={product.price}
-                      data-item-url="/"
+                      data-item-url="https://soulcedarfarm.com/shop"
                     >
                       Add to cart
                     </button>
@@ -101,3 +102,5 @@ export const Shop = () => {
     </>
   );
 };
+
+export default Shop;

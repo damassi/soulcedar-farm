@@ -1,24 +1,30 @@
 import React from "react";
 import { Box, Flex, Image } from "rebass";
-import { Link } from "@reach/router";
+import Link from "next/link";
 import { Mobile, Desktop } from "./Responsive";
-import logo from "../assets/soulcedar/logo.svg";
 
 export const Logo = (props) => {
   return (
-    <Flex justifyContent="center" style={props.style} position="relative">
-      <Link to="/">
-        <Mobile>
+    <Flex justifyContent="center" style={props.style}>
+      <Mobile>
+        <Link href="/" passHref>
           <Box mt={1}>
-            <Image src={logo} width={150} />
+            <Image src="/soulcedar/logo.svg" width={150} alt="logo" />
           </Box>
-        </Mobile>
-        <Desktop>
+        </Link>
+      </Mobile>
+      <Desktop style={{ cursor: "pointer" }}>
+        <Link href="/" passHref>
           <Box>
-            <Image src={logo} width="auto" height={190} />
+            <Image
+              src="/soulcedar/logo.svg"
+              width="auto"
+              height={190}
+              alt="logo"
+            />
           </Box>
-        </Desktop>
-      </Link>
+        </Link>
+      </Desktop>
     </Flex>
   );
 };

@@ -1,20 +1,20 @@
-import React from "react"
-import styled from "styled-components"
-import { setGlobal, useGlobal } from "reactn"
-import { Box } from "rebass"
-import { Logo } from "./Logo"
-import { Navigation } from "./Navigation"
-import { useSpring, animated } from "react-spring"
-import { Desktop, Mobile } from "./Responsive"
-import { Footer } from "./Footer"
-import { Spacer } from "./Spacer"
+import React from "react";
+import styled from "styled-components";
+import { setGlobal, useGlobal } from "reactn";
+import { Box } from "rebass";
+import { Logo } from "./Logo";
+import { Navigation } from "./Navigation";
+import { useSpring, animated } from "react-spring";
+import { Desktop, Mobile } from "./Responsive";
+import { Footer } from "./Footer";
+import { Spacer } from "./Spacer";
 
 setGlobal({
   mobileNavOpen: false,
-})
+});
 
 export const Layout = ({ children }) => {
-  const [state] = useGlobal()
+  const [state] = useGlobal();
 
   const expandNavAnimation = useSpring({
     position: "relative",
@@ -23,41 +23,27 @@ export const Layout = ({ children }) => {
     transform: state.mobileNavOpen
       ? "translate3d(300px, 0, 0) rotate(0deg)"
       : "translate3d(0px, 0, 0) rotate(0deg)",
-  })
+  });
 
   return (
-      <Container p={[1, 2]} >
-        <Desktop>
+    <Box p={[1, 2]} maxWidth={1200} margin="0 auto">
+      <Desktop>
+        <Logo />
+        <Navigation />
+        <Spacer py={2} />
+        <Box p={2} flexBasis="auto" flexShrink={0} flexGrow={1}>
+          {children}
+        </Box>
+        {/* <Footer /> */}
+      </Desktop>
+
+      <Mobile>
+        <Navigation />
+        <animated.div style={expandNavAnimation}>
           <Logo />
-          <Navigation />
-          <Spacer my={3} />
-          <Content mt={2}>{children}</Content>
-          <Footer />
-        </Desktop>
-
-        <Mobile>
-          <Navigation />
-          <animated.div style={expandNavAnimation}>
-            <Logo />
-            <Box mt={3}>{children}</Box>
-          </animated.div>
-        </Mobile>
-      </Container>
-  )
-}
-
-const Container = styled(Box)`
-  max-width: 1200px;
-  margin: 0 auto !important;
-
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
-
-const Content = styled(Box)`
-  flex-basis: auto;
-  flex-shrink: 0;
-  flex-grow: 1;
-`
+          <Box pt={3}>{children}</Box>
+        </animated.div>
+      </Mobile>
+    </Box>
+  );
+};

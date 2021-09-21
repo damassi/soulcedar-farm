@@ -1,16 +1,16 @@
-import React from "react"
-import { Flex, Box, Image } from "rebass"
-import { Sans } from "../components/Typography"
-import { Spacer } from "../components/Spacer"
-import { Link } from "@reach/router"
-import image from "../assets/soulcedar/image3.jpeg"
+import React from "react";
+import { Flex, Box } from "rebass";
+import { Sans } from "../components/Typography";
+import { Spacer } from "../components/Spacer";
+import Link from "next/link";
+import Image from "next/image";
 
-export const About = () => {
+const About = () => {
   return (
     <>
       <Flex flexDirection={["column", "row"]}>
         <Box width={["100%", "60%"]} pr={[0, 5]}>
-          <Image src={image} />
+          <Image src="/soulcedar/image3.jpeg" alt="" width={616} height={821} />
         </Box>
         <Box width={["100%", "40%"]} my={[2, 0]}>
           <Sans size={["5", "6"]}>
@@ -36,12 +36,14 @@ export const About = () => {
           <Spacer my={4} />
 
           <Sans size="4">
-            <p>
-              <Link to="/contact-us">Get in touch!</Link>
+            <p style={{ textDecoration: "underline" }}>
+              <Link href="/contact-us">Get in touch!</Link>
             </p>
           </Sans>
         </Box>
       </Flex>
     </>
-  )
-}
+  );
+};
+
+export default About;

@@ -1,29 +1,29 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Box, Flex, Image } from "rebass";
-import { Link } from "@reach/router";
+import Link from "next/link";
 import styled from "styled-components";
 import { useGlobal } from "reactn";
 import { color } from "../theme";
 import { Serif } from "./Typography";
-import { ReactComponent as NavToggle } from "../assets/NavToggle.svg";
+import NavToggle from "./NavToggle.svg";
 import { Mobile, Desktop } from "./Responsive";
 import { useSpring, animated } from "react-spring";
-import cart from "../assets/soulcedar/shopping-cart.svg";
+// import cart from "../assets/soulcedar/shopping-cart.svg";
 
 const LinkItem = (props) => {
   return (
     <Box mr={4}>
       <Serif color="black60" size={["6", "6"]}>
         <Link
-          to={props.to}
-          getProps={({ isCurrent }) =>
-            isCurrent ? { className: "active" } : null
-          }
-          style={{
-            whiteSpace: "nowrap",
-            userSelect: "none",
-          }}
+          href={props.href}
+          // getProps={({ isCurrent }) =>
+          //   isCurrent ? { className: "active" } : null
+          // }
+          // style={{
+          //   whiteSpace: "nowrap",
+          //   userSelect: "none",
+          // }}
         >
           {props.children}
         </Link>
@@ -39,12 +39,12 @@ const NavItems = () => {
       width="100%"
       justifyContent="center"
     >
-      <LinkItem to="/">Home</LinkItem>
-      {/* <LinkItem to="/shop">Shop</LinkItem> */}
-      <LinkItem to="/about">About</LinkItem>
-      {/* <LinkItem to="/gallery">Gallery</LinkItem> */}
-      <LinkItem to="/where-to-find-us">Where to Find Us</LinkItem>
-      <LinkItem to="/contact-us">Contact</LinkItem>
+      <LinkItem href="/">Home</LinkItem>
+      {/* <LinkItem hreff="/shop">Shop</LinkItem> */}
+      <LinkItem href="/about">About</LinkItem>
+      {/* <LinkItem href="/gallery">Gallery</LinkItem> */}
+      <LinkItem href="/where-to-find-us">Where to Find Us</LinkItem>
+      <LinkItem href="/contact-us">Contact</LinkItem>
 
       {/* <Flex height={15} position="relative" mt="12px" alignItems="center">
         <CheckoutButton className="snipcart-checkout" background="hidden">
@@ -79,13 +79,14 @@ export const Navigation = () => {
 
 const DesktopNavigation = () => {
   return (
-    <Container m={2} alignItems="center" flexDirection="row">
+    <Container mb={4} alignItems="center" flexDirection="row">
       <NavItems />
     </Container>
   );
 };
 
 const MobileNavigation = () => {
+  // @ts-ignore
   const [isOpen, toggleOpen] = useGlobal("mobileNavOpen");
 
   const animateStyles = {
@@ -98,6 +99,7 @@ const MobileNavigation = () => {
   });
 
   return (
+    // @ts-ignore
     <MobileContainer onClick={() => toggleOpen(!isOpen)}>
       <NavToggle
         style={{
@@ -105,6 +107,7 @@ const MobileNavigation = () => {
           opacity: 0.3,
         }}
       />
+      {/* @ts-ignore */}
       <animated.div style={expandNavAnimation}>
         <Container my={5} alignItems="flex-start" width="100%">
           <NavItems />

@@ -1,41 +1,31 @@
-import React from "react"
-import Media from "react-media"
-import { breakpoints } from "../theme"
+import React from "react";
+import { Box } from "rebass";
+import { Media } from "../media";
 
-export const Mobile = ({ children }) => {
-  return <MediaWrapper target="mobile">{children}</MediaWrapper>
-}
-
-export const Desktop = ({ children }) => {
-  return <MediaWrapper target="desktop">{children}</MediaWrapper>
-}
-
-const MediaWrapper = ({ target, children }) => {
+export const Mobile = ({ children, ...rest }) => {
   return (
-    <Media query={{ maxWidth: breakpoints.sm }}>
-      {mobile => {
-        switch (target) {
-          case "mobile":
-            return mobile ? children : null
-          // Desktop
-          default:
-            return mobile ? null : children
-        }
+    <Media at="xs">
+      {(mediaClassNames, renderChildren) => {
+        return (
+          <Box className={mediaClassNames} {...rest}>
+            {renderChildren ? children : null}
+          </Box>
+        );
       }}
     </Media>
-  )
-}
+  );
+};
 
-export const RenderIf = ({ greaterThan, children }) => {
+export const Desktop = ({ children, ...rest }) => {
   return (
-    <Media query={{ minWidth: greaterThan }}>
-      {match => {
-        if (match) {
-          return children
-        } else {
-          return null
-        }
+    <Media greaterThan="xs">
+      {(mediaClassNames, renderChildren) => {
+        return (
+          <Box className={mediaClassNames} {...rest}>
+            {renderChildren ? children : null}
+          </Box>
+        );
       }}
     </Media>
-  )
-}
+  );
+};

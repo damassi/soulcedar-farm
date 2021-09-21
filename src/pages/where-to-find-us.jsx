@@ -1,17 +1,17 @@
-import React from "react"
-import { Box } from "rebass"
-import { Center } from "../components/Center"
-import { Spacer } from "../components/Spacer"
-import { Sans } from "../components/Typography"
+import React from "react";
+import { Box } from "rebass";
+import { Center } from "../components/Center";
+import { Spacer } from "../components/Spacer";
+import { Sans } from "../components/Typography";
 
-export const WhereToFindUs = () => {
+const WhereToFindUs = () => {
   return (
     <Box style={{ position: "relative" }}>
       <Center
         flexDirection="column"
         justifyContent="center"
         width="100%"
-        style={{ position: "absolute" }}
+        // style={{ position: "absolute" }}
       >
         <Box>
           <Sans size={6} weight="regular" textAlign="center">
@@ -32,5 +32,7 @@ export const WhereToFindUs = () => {
         </Box>
       </Center>
     </Box>
-  )
-}
+  );
+};
+
+export default WhereToFindUs;
