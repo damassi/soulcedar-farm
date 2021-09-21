@@ -8,7 +8,6 @@ import { color } from "../theme";
 import { Serif } from "./Typography";
 import NavToggle from "./NavToggle.svg";
 import { Mobile, Desktop } from "./Responsive";
-import { useSpring, animated } from "react-spring";
 import { useRouter } from "next/router";
 
 const LinkItem = (props) => {
@@ -17,16 +16,7 @@ const LinkItem = (props) => {
   return (
     <Box mr={4}>
       <Serif color="black60" size={["6", "6"]}>
-        <Link
-          href={props.href}
-          // getProps={({ isCurrent }) =>
-          //   isCurrent ? { className: "active" } : null
-          // }
-          // style={{
-          //   whiteSpace: "nowrap",
-          //   userSelect: "none",
-          // }}
-        >
+        <Link href={props.href}>
           <a className={router.pathname === props.href ? "active" : ""}>
             {props.children}
           </a>
@@ -97,13 +87,13 @@ const MobileNavigation = () => {
     position: "relative",
     left: isOpen ? 0 : -200,
   };
-  const expandNavAnimation = useSpring({
-    ...animateStyles,
-    from: animateStyles,
-  });
+  // const expandNavAnimation = useSpring({
+  //   ...animateStyles,
+  //   from: animateStyles,
+  //   duration: 0,
+  // });
 
   return (
-    // @ts-ignore
     <MobileContainer onClick={() => toggleOpen(!isOpen)}>
       <NavToggle
         style={{
@@ -112,11 +102,11 @@ const MobileNavigation = () => {
         }}
       />
       {/* @ts-ignore */}
-      <animated.div style={expandNavAnimation}>
+      <div style={animateStyles}>
         <Container my={5} alignItems="flex-start" width="100%">
           <NavItems />
         </Container>
-      </animated.div>
+      </div>
     </MobileContainer>
   );
 };

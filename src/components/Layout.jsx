@@ -4,9 +4,7 @@ import { setGlobal, useGlobal } from "reactn";
 import { Box } from "rebass";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
-import { useSpring, animated } from "react-spring";
 import { Desktop, Mobile } from "./Responsive";
-import { Footer } from "./Footer";
 import { Spacer } from "./Spacer";
 
 setGlobal({
@@ -16,14 +14,14 @@ setGlobal({
 export const Layout = ({ children }) => {
   const [state] = useGlobal();
 
-  const expandNavAnimation = useSpring({
+  const expandNavAnimation = {
     position: "relative",
     opacity: state.mobileNavOpen ? "0.5" : "1",
     transformOrigin: "top left",
     transform: state.mobileNavOpen
       ? "translate3d(300px, 0, 0) rotate(0deg)"
       : "translate3d(0px, 0, 0) rotate(0deg)",
-  });
+  };
 
   return (
     <Box p={[1, 2]} maxWidth={1200} margin="0 auto">
@@ -39,10 +37,10 @@ export const Layout = ({ children }) => {
 
       <Mobile>
         <Navigation />
-        <animated.div style={expandNavAnimation}>
+        <div style={expandNavAnimation}>
           <Logo />
           <Box pt={3}>{children}</Box>
-        </animated.div>
+        </div>
       </Mobile>
     </Box>
   );
