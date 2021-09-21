@@ -13,9 +13,9 @@ const About = () => {
       </Head>
       <Flex flexDirection={["column", "row"]}>
         <Box width={["100%", "60%"]} pr={[0, 5]}>
-          <Image src="/soulcedar/image3.jpeg" alt="" width={616} height={821} />
+          <Image src="/soulcedar/image3.jpeg" alt="" />
         </Box>
-        <Box width={["100%", "40%"]} my={[2, 0]}>
+        <Box width={["100%", "40%"]} my={[3, 0]}>
           <Sans size={["5", "6"]}>
             SoulCedar Farm is a small scale, holistic farm located in Quilcene, 
             Washington. Sage Coy and Max Evans, couple and co-owners, believe in
