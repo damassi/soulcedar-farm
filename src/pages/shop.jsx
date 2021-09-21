@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { Box, Flex } from "rebass";
 import { Spacer } from "../components/Spacer";
 import { Center } from "../components/Center";
@@ -10,6 +11,9 @@ import { data } from "../data";
 const Shop = () => {
   return (
     <>
+      <Head>
+        <title>Shop | SoulCedar Farm | Quilcene, WA</title>
+      </Head>
       <Center mb={4}>
         <Box textAlign="center" width="80%">
           <Sans size={[6, 7]} weight="light" textAlign="center">

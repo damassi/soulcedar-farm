@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { Flex, Box } from "rebass";
 import { Sans } from "../components/Typography";
 import { Spacer } from "../components/Spacer";
@@ -8,6 +9,9 @@ import Image from "next/image";
 const About = () => {
   return (
     <>
+      <Head>
+        <title>About | SoulCedar Farm | Quilcene, WA</title>
+      </Head>
       <Flex flexDirection={["column", "row"]}>
         <Box width={["100%", "60%"]} pr={[0, 5]}>
           <Image src="/soulcedar/image3.jpeg" alt="" width={616} height={821} />
