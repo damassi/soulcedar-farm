@@ -9,9 +9,11 @@ import { Serif } from "./Typography";
 import NavToggle from "./NavToggle.svg";
 import { Mobile, Desktop } from "./Responsive";
 import { useSpring, animated } from "react-spring";
-// import cart from "../assets/soulcedar/shopping-cart.svg";
+import { useRouter } from "next/router";
 
 const LinkItem = (props) => {
+  const router = useRouter();
+
   return (
     <Box mr={4}>
       <Serif color="black60" size={["6", "6"]}>
@@ -25,7 +27,9 @@ const LinkItem = (props) => {
           //   userSelect: "none",
           // }}
         >
-          {props.children}
+          <a className={router.pathname === props.href ? "active" : ""}>
+            {props.children}
+          </a>
         </Link>
       </Serif>
     </Box>
