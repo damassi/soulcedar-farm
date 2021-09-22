@@ -6,9 +6,8 @@ import { Sans } from "../components/Typography";
 import { Center } from "../components/Center";
 import { Divider } from "../components/Divider";
 import { Desktop } from "../components/Responsive";
-import { gql } from "@apollo/client";
-import { client } from "../apolloClient";
 import { getPageContent } from "../utils/getPageContent";
+import { queryPage } from "../utils/queryPage";
 
 export const Home = ({ home }) => {
   const content = getPageContent(home, [
@@ -157,20 +156,6 @@ export const Home = ({ home }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Home {
-        home {
-          section
-          content
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      home: data.home,
-    },
-  };
+  const data = await queryPage("home");
+  return data;
 }

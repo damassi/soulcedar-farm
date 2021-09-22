@@ -8,6 +8,7 @@ import { gql } from "@apollo/client";
 import { client } from "../apolloClient";
 import { getPageContent } from "../utils/getPageContent";
 import { withLineBreaks } from "../utils/withLineBreaks";
+import { queryPage } from "../utils/queryPage";
 
 const About = ({ about }) => {
   const content = getPageContent(about, ["about"]);
@@ -41,20 +42,6 @@ const About = ({ about }) => {
 export default About;
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query About {
-        about {
-          section
-          content
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      about: data.about,
-    },
-  };
+  const data = await queryPage("about");
+  return data;
 }

@@ -7,6 +7,7 @@ import { Sans } from "../components/Typography";
 import { gql } from "@apollo/client";
 import { client } from "../apolloClient";
 import { getPageContent } from "../utils/getPageContent";
+import { queryPage } from "../utils/queryPage";
 
 const ContactUs = ({ contact }) => {
   const content = getPageContent(contact, ["max", "sage", "contact"]);
@@ -40,20 +41,6 @@ const ContactUs = ({ contact }) => {
 export default ContactUs;
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Contact {
-        contact {
-          section
-          content
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      contact: data.contact,
-    },
-  };
+  const data = await queryPage("contact");
+  return data;
 }

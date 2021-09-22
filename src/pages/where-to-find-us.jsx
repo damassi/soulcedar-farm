@@ -8,6 +8,7 @@ import { gql } from "@apollo/client";
 import { client } from "../apolloClient";
 import { getPageContent } from "../utils/getPageContent";
 import { withLineBreaks } from "../utils/withLineBreaks";
+import { queryPage } from "../utils/queryPage";
 
 const WhereToFindUs = ({ whereToFindUs }) => {
   const content = getPageContent(whereToFindUs, [
@@ -47,20 +48,6 @@ const WhereToFindUs = ({ whereToFindUs }) => {
 export default WhereToFindUs;
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query WhereToFindUs {
-        whereToFindUs {
-          section
-          content
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      whereToFindUs: data.whereToFindUs,
-    },
-  };
+  const data = await queryPage("whereToFindUs");
+  return data;
 }
