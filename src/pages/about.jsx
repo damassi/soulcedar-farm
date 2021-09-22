@@ -4,8 +4,15 @@ import { Flex, Box, Image } from "rebass";
 import { Sans } from "../components/Typography";
 import { Spacer } from "../components/Spacer";
 import Link from "next/link";
+import { gql } from "@apollo/client";
+import { client } from "../apolloClient";
+import { getPageContent } from "../utils/getPageContent";
+import { withLineBreaks } from "../utils/withLineBreaks";
 
-const About = () => {
+const About = ({ about }) => {
+  const content = getPageContent(about, ["about"]);
+  const aboutText = withLineBreaks(content.about);
+
   return (
     <>
       <Head>
@@ -16,25 +23,7 @@ const About = () => {
           <Image src="/soulcedar/image3.jpeg" alt="" />
         </Box>
         <Box width={["100%", "40%"]} my={[3, 0]}>
-          <Sans size={["5", "6"]}>
-            SoulCedar Farm is a small scale, holistic farm located in Quilcene, 
-            Washington. Sage Coy and Max Evans, couple and co-owners, believe in
-            the importance of nourishing food and of reciprocal relationships
-            between people, plants and land. These fundamentals fuel the body,
-            mind and spirit, with access to wholesome food as the root of
-            healthy human growth.
-            <br />
-            <br />
-            SoulCedar Farm strives to bolster local food systems and contribute
-            to food security through creative, shelf stable canned goods. Sage
-            and Max grow as much produce for their canned products as possible,
-            and hope to minimize food waste by connecting with other small
-            Olympic Peninsula farms for the rest. Nature is not fragmented; it
-            is comprised of its intertwined inhabitants, depending on one
-            another to nurture the whole. Cooperation in the local Peninsula
-            farming network works in the same way, supporting all and creating a
-            balanced community ecosystem.
-          </Sans>
+          <Sans size={["5", "6"]}>{aboutText}</Sans>
 
           <Spacer my={4} />
 
@@ -50,3 +39,22 @@ const About = () => {
 };
 
 export default About;
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query About {
+        about {
+          section
+          content
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      about: data.about,
+    },
+  };
+}
