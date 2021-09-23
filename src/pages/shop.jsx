@@ -71,7 +71,7 @@ const Shop = ({ shop }) => {
                         className="snipcart-add-item"
                         data-item-description={product.description}
                         data-item-id={product.productId}
-                        data-item-image="/assets/images/starry-night.jpg"
+                        data-item-image={product.attachments[0].url}
                         data-item-name={product.title}
                         data-item-price={product.price}
                         data-item-url="/shop"
