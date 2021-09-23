@@ -1,14 +1,25 @@
 import React from "react";
 import Head from "next/head";
-import { Box, Flex } from "rebass";
+import { Box, Flex, Image } from "rebass";
 import { Spacer } from "../components/Spacer";
+import { Divider } from "../components/Divider";
 import { Center } from "../components/Center";
 import { BorderBox } from "../components/BorderBox";
 import { Sans } from "../components/Typography";
 import { Serif } from "../components/Typography";
-import { data } from "../data";
+import { queryPage } from "../utils/queryPage";
+import { gql } from "@apollo/client";
+import { client } from "../apolloClient";
+import { getPageContent } from "../utils/getPageContent";
 
-const Shop = () => {
+const Shop = ({ shop }) => {
+  const content = getPageContent(shop.pageData, [
+    "title",
+    "description",
+    "suggestedUsesTitle",
+    "suggestedUsesContent",
+  ]);
+
   return (
     <>
       <Head>
@@ -17,86 +28,98 @@ const Shop = () => {
       <Center mb={4}>
         <Box textAlign="center" width="80%">
           <Sans size={[6, 7]} weight="light" textAlign="center">
-            SoulCedar Shrubs
+            {content.title}
           </Sans>
           <br />
-          <Sans textAlign="center">
-            SoulCedar Farm Shrubs are made using a a base of apple cider vinegar
-            and honey to prioritize wholesome, local, seasonal ingredients and
-            calm stomachs. Intriguing flavor combinations of herbs, fruits and
-            roots create these balanced elixirs, delicious in a variety of
-            beverages or as a unique culinary ingredient. These versatile
-            sipping vinegars are a rewarding alcohol alternative and versatile
-            refreshment for any occasion!
-          </Sans>
+          <Sans textAlign="center">{content.description}</Sans>
         </Box>
       </Center>
 
+      <Spacer py={2} />
+
       <Flex flexDirection={["column", "row"]}>
         <Box width={["100%", "70%"]} pr={[0, 5]}>
-          <Flex flexWrap="wrap" pl={2}>
-            {data.products.map((product, index) => {
+          <Box>
+            {shop.products.map((product, index) => {
               if (product.hide) {
                 return null;
               }
 
               return (
-                // @ts-ignore
-                <BorderBox mr={2} mb={2} key={index} width="100%">
-                  <Box>
-                    <Serif size={["4", "5"]} weight="bold" color="purpleDark">
-                      {product.title}
-                    </Serif>
-                    <Sans mt={1}>
-                      <i>{product.keywords}</i>
-                    </Sans>
-                    <Box mt={1}>{product.description}</Box>
-                    <Flex mt={1} justifyContent="space-between">
-                      <Sans pr={1}>
-                        ${product.price}, {product.meta}
+                <Box p={2} mr={2} mb={2} key={index} width="100%">
+                  <Flex
+                    width="100%"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    flexDirection={["column", "row"]}
+                  >
+                    <Box width={["100%", "80%"]} pr={[0, 4]}>
+                      <Serif size={["4", "5"]} weight="bold" color="purpleDark">
+                        {product.title}
+                      </Serif>
+                      <Sans mt={1}>
+                        <i>{product.keywords}</i>
                       </Sans>
-                    </Flex>
+                      <Box mt={1}>{product.description}</Box>
+                      <Flex mt={1} justifyContent="space-between" py={2}>
+                        <Sans pr={1}>
+                          ${Number(product.price).toFixed(2)}, {product.meta}
+                        </Sans>
+                      </Flex>
 
-                    <button
-                      className="snipcart-add-item"
-                      data-item-description={product.description}
-                      data-item-id={product.productId}
-                      data-item-image="/assets/images/starry-night.jpg"
-                      data-item-name={product.title}
-                      data-item-price={product.price}
-                      data-item-url="/shop"
+                      <button
+                        className="snipcart-add-item"
+                        data-item-description={product.description}
+                        data-item-id={product.productId}
+                        data-item-image="/assets/images/starry-night.jpg"
+                        data-item-name={product.title}
+                        data-item-price={product.price}
+                        data-item-url="/shop"
+                        style={{
+                          border: 0,
+                          padding: 10,
+                          textDecoration: "underline",
+                          marginTop: 5,
+                          cursor: "pointer",
+                        }}
+                      >
+                        Add to cart
+                      </button>
+                    </Box>
+                    <Box
+                      width={["100%", "20%"]}
+                      maxWidth={200}
+                      minWidth={200}
+                      mt={[4, 0]}
                     >
-                      Add to cart
-                    </button>
-                  </Box>
-                  <Box />
-                </BorderBox>
+                      <Image
+                        src={product.attachments[0].url}
+                        width={200}
+                        alt={product.title}
+                      />
+                    </Box>
+                  </Flex>
+
+                  {index !== shop.products.length - 1 && (
+                    <Divider mt={4} mb={3} />
+                  )}
+                </Box>
               );
             })}
-          </Flex>
+          </Box>
         </Box>
         <Box width={["100%", "30%"]}>
           <Spacer my={3} />
           <Box>
             <Box>
-              <Sans size={["4", "5"]}>Suggested Uses</Sans>
+              <Sans size={["4", "5"]}>{content.suggestedUsesTitle}</Sans>
             </Box>
             <Box>
-              <ul>
-                <li>
-                  Add 1 T - 1.5 oz shrub to sparkling water for a refreshing
-                  spritzer
-                </li>
-                <li>
-                  Combine equal parts shrub and water for a revitalizing tonic
-                </li>
-                <li>
-                  Play with seasonal flavors and add to muddled herbs and
-                  botanicals to spice up your favorite cocktail or mock-tail
-                </li>
-                <li>Add a dash to an old fashioned ice cream soda</li>
-                <li>Sip it straight! Enjoy as an aperitif or digestif</li>
-              </ul>
+              <ul
+                dangerouslySetInnerHTML={{
+                  __html: content.suggestedUsesContent,
+                }}
+              />
             </Box>
           </Box>
         </Box>
@@ -108,3 +131,33 @@ const Shop = () => {
 };
 
 export default Shop;
+
+export async function getStaticProps() {
+  const pageData = await queryPage("shop");
+
+  const { data: productData } = await client.query({
+    query: gql`
+      query Page {
+        products {
+          productId
+          title
+          keywords
+          price
+          meta
+          description
+          hide
+          attachments
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      shop: {
+        pageData: pageData.props.shop,
+        products: productData.products,
+      },
+    },
+  };
+}

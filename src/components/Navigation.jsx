@@ -80,28 +80,31 @@ const DesktopNavigation = () => {
 };
 
 const MobileNavigation = () => {
-  // @ts-ignore
   const [isOpen, toggleOpen] = useGlobal("mobileNavOpen");
 
   const animateStyles = {
     position: "relative",
     left: isOpen ? 0 : -200,
   };
-  // const expandNavAnimation = useSpring({
-  //   ...animateStyles,
-  //   from: animateStyles,
-  //   duration: 0,
-  // });
+
+  const size = isOpen
+    ? { width: "100%", height: "100%" }
+    : { width: 60, height: 60 };
 
   return (
-    <MobileContainer onClick={() => toggleOpen(!isOpen)}>
+    <MobileContainer
+      onClick={() => toggleOpen(!isOpen)}
+      width={size.width}
+      height={size.height}
+    >
       <NavToggle
         style={{
           position: "absolute",
           opacity: 0.3,
+          width: 50,
+          height: 50,
         }}
       />
-      {/* @ts-ignore */}
       <div style={animateStyles}>
         <Container my={5} alignItems="flex-start" width="100%">
           <NavItems />
