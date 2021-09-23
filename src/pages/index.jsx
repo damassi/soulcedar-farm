@@ -83,7 +83,7 @@ export const Home = ({ home }) => {
           </Box>
         </Flex>
 
-        <Center my={4}>
+        <Center mt={5}>
           <Flex
             justifyContent="center"
             width={700}
@@ -99,7 +99,7 @@ export const Home = ({ home }) => {
           </Flex>
         </Center>
 
-        <Divider my={4} />
+        <Divider py="20px" />
 
         <Center my={4}>
           <Box width={["100%", "70%"]}>
