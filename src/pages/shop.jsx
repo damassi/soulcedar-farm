@@ -4,13 +4,13 @@ import { Box, Flex, Image } from "rebass";
 import { Spacer } from "../components/Spacer";
 import { Divider } from "../components/Divider";
 import { Center } from "../components/Center";
-import { BorderBox } from "../components/BorderBox";
 import { Sans } from "../components/Typography";
 import { Serif } from "../components/Typography";
 import { queryPage } from "../utils/queryPage";
 import { gql } from "@apollo/client";
 import { client } from "../apolloClient";
 import { getPageContent } from "../utils/getPageContent";
+import StickyBox from "react-sticky-box";
 
 const Shop = ({ shop }) => {
   const content = getPageContent(shop.pageData, [
@@ -109,19 +109,21 @@ const Shop = ({ shop }) => {
           </Box>
         </Box>
         <Box width={["100%", "30%"]}>
-          <Spacer my={3} />
-          <Box>
+          <StickyBox offsetTop={20} offsetBottom={20}>
+            <Spacer my={3} />
             <Box>
-              <Sans size={["4", "5"]}>{content.suggestedUsesTitle}</Sans>
+              <Box>
+                <Sans size={["4", "6"]}>{content.suggestedUsesTitle}</Sans>
+              </Box>
+              <Box>
+                <ul
+                  dangerouslySetInnerHTML={{
+                    __html: content.suggestedUsesContent,
+                  }}
+                />
+              </Box>
             </Box>
-            <Box>
-              <ul
-                dangerouslySetInnerHTML={{
-                  __html: content.suggestedUsesContent,
-                }}
-              />
-            </Box>
-          </Box>
+          </StickyBox>
         </Box>
       </Flex>
 
