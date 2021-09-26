@@ -7,7 +7,9 @@ import { theme } from "../theme";
 import { MediaContextProvider } from "../media";
 
 const SNIPCART_API_KEY =
-  "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5";
+  process.env.NODE_ENV === "development"
+    ? "NWE0ZDMzZjgtZDAxZC00ODhkLWJiNmEtY2MyYzhiZmFiMjljNjM3NjM3MjM5NTkxNzcwMTE5"
+    : "ZmMzMDc3MDUtOWFlMy00MDk5LTk0MmYtN2VhNjMxZjJiYmI4NjM3NjM3MjM5NTkxNzcwMTE5";
 
 function MyApp({ Component, pageProps }) {
   return (

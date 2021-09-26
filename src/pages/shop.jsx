@@ -76,6 +76,7 @@ const Shop = ({ shop }) => {
                         data-item-price={product.price}
                         data-item-url="/shop"
                         style={{
+                          background: "white",
                           border: 0,
                           padding: 10,
                           textDecoration: "underline",
