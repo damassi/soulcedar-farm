@@ -55,13 +55,18 @@ const NavItems = () => {
 };
 
 const CheckoutButton = styled.button`
-  background: none;
+  appearance: none;
   background-color: transparent;
   background-repeat: no-repeat;
-  border: none;
+  border: 0;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
 `;
 
 export const Navigation = () => {
