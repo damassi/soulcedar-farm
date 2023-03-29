@@ -63,7 +63,8 @@ const Shop = ({ shop }) => {
                       <Box mt={1}>{product.description}</Box>
                       <Flex mt={1} justifyContent="space-between" py={2}>
                         <Sans pr={1}>
-                          ${Number(product.price).toFixed(2)}, {product.meta}
+                          ${Number(product.price).toFixed(2)}
+                          {product.meta && "," + product.meta}
                         </Sans>
                       </Flex>
 
@@ -71,7 +72,7 @@ const Shop = ({ shop }) => {
                         className="snipcart-add-item"
                         data-item-description={product.description}
                         data-item-id={product.productId}
-                        data-item-image={product.attachments[0].url}
+                        data-item-image={product.attachments?.[0]?.url}
                         data-item-name={product.title}
                         data-item-price={product.price}
                         data-item-url="/shop"
@@ -87,18 +88,20 @@ const Shop = ({ shop }) => {
                         Add to cart
                       </button>
                     </Box>
-                    <Box
-                      width={["100%", "20%"]}
-                      maxWidth={200}
-                      minWidth={200}
-                      mt={[4, 0]}
-                    >
-                      <Image
-                        src={product.attachments[0].url}
-                        width={200}
-                        alt={product.title}
-                      />
-                    </Box>
+                    {product.attachments?.[0] && (
+                      <Box
+                        width={["100%", "20%"]}
+                        maxWidth={200}
+                        minWidth={200}
+                        mt={[4, 0]}
+                      >
+                        <Image
+                          src={product.attachments[0].url}
+                          width={200}
+                          alt={product.title}
+                        />
+                      </Box>
+                    )}
                   </Flex>
 
                   {index !== shop.products.length - 1 && (

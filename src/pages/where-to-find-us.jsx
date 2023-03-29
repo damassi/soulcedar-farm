@@ -11,11 +11,7 @@ import { withLineBreaks } from "../utils/withLineBreaks";
 import { queryPage } from "../utils/queryPage";
 
 const WhereToFindUs = ({ whereToFindUs }) => {
-  const content = getPageContent(whereToFindUs, [
-    "address",
-    "addressHeader",
-    "message",
-  ]);
+  const content = getPageContent(whereToFindUs, ["location", "message"]);
 
   return (
     <>
@@ -26,17 +22,13 @@ const WhereToFindUs = ({ whereToFindUs }) => {
         <Center flexDirection="column" justifyContent="center" width="100%">
           <Box>
             <Sans size={6} weight="regular" textAlign="center">
-              {content.addressHeader}
-            </Sans>
-
-            <Sans size={5} weight="light" textAlign="center">
-              {withLineBreaks(content.address)}
+              {content.location}
             </Sans>
 
             <Spacer my={4} />
 
             <Sans size={5} weight="light" textAlign="center">
-              {content.message}
+              {withLineBreaks(content.message)}
             </Sans>
           </Box>
         </Center>
